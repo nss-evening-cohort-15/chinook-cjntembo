@@ -1,7 +1,6 @@
-top_2009_agent.sql
+top_agent.sql
 
-Which sales agent made the most in sales in 2009?
-    Hint: Use the MAX function on a subquery.
+ Which sales agent made the most in sales over all?
 
 SELECT temp_table.FirstName AS REP_FirstName,
 temp_table.LastName AS REP_LASTName,
@@ -13,6 +12,5 @@ FROM Employee E
     ON C.SupportRepID = E.EmployeeId
     JOIN Invoice I
     ON I.CustomerID = C.CustomerId
-        WHERE strftime('%Y', I.invoiceDate) = '2009'
         GROUP BY E.FirstName, E.LastName
         ORDER BY Total DESC) AS temp_table;
